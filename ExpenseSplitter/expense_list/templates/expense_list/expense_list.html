@@ -1,0 +1,15 @@
+<h1>Expense list</h1>
+
+<table>
+    <tr>
+        <th>Item</th>
+    </tr>
+    {% for expense in expenses %}
+    <tr>
+        <td>{{expense.title}}</td>
+    </tr>
+    {% empty %}
+        <h3>No items here!</h3>
+    {% endfor %}
+</table>
+
