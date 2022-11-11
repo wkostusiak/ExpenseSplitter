@@ -1,0 +1,17 @@
+<title>Add</title>
+
+
+{% extends 'expense_list/main.html' %}
+{% block content %}
+
+<h1>Add new expense here:</h1>
+
+<a href = "{% url 'expenselist' %}">Go back</a>
+    <form method="POST" action="">
+        {%csrf_token%}
+        {{form.as_p}}
+        <input type = "submit" value = "SUBMIT">
+    </form>
+
+
+{% endblock content %}

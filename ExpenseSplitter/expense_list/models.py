@@ -10,15 +10,15 @@ class Category(models.Model):
 
 
 class Expense(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=False)
-    title = models.CharField(max_length=200, null=True, blank=False)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    title = models.CharField(max_length=200, null= False, blank=False, default='title')
     amount = models.DecimalField(max_digits=8, decimal_places=2)
-    description = models.TextField(null=True, blank=True)
+    description = models.TextField(null=False, blank=True, default='text')
     create = models.DateTimeField(auto_now_add=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'{self.title} {self.amount} {self.user.username}'
+        return f'{self.title} {self.amount} {self.user}'
 
     class Meta:
         ordering = ['-create']

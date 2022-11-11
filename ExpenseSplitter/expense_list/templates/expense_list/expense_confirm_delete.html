@@ -1,0 +1,13 @@
+{% extends 'expense_list/main.html' %}
+{% block content %}
+
+    <title>Delete</title>
+    <a href = "{% url 'expenselist' %}">Go back</a>
+    <form method="POST" action="">
+        {%csrf_token%}
+        <p>Are you sure you want to  delete it? "{{expense}}"</p>
+        {{form.as_p}}
+        <input type = "submit" value = "DELETE"/>
+    </form>
+
+{% endblock content %}

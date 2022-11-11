@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Pontano+Sans&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/4ec61a45c2.js" crossorigin="anonymous"></script>
+
+    <style>
+        body{
+        background-color: #DFDFDE;
+        font-family: 'Pontano Sans', sans-serif;
+        padding-top: 50 px
+        }
+
+        .container{
+        width:100%;
+        max-width: 540px;
+        margin: auto;
+        background-color: #F7F5F2;
+        border-radius: 15px;
+        }
+
+        .shadow{
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        border-radius: 15px;
+        }
+
+        .header{
+        font-family: 'Shrikhand';
+        text-align: center
+        }
+
+        a {
+        color: #4b5156;
+        text-decoration: none;
+        }
+
+        .menu a:hover{
+        text-decoration: underline;
+        }
+
+        .header-bar{
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        background: rgb(239,174,72);
+        background: linear-gradient(69deg, rgba(239,174,72,1) 4%, rgba(248,213,170,1) 86%);
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        }
+
+        table {
+        border-collapse: collapse;
+        border-spacing: 50px 0;
+        position: relative;
+        height:100%;
+        width:100%;
+
+        }
+
+        td {
+        padding: 20px 20px;
+        }
+
+        tr {
+        padding: 20px 20px;
+        border: solid;
+        border-width: 1px 0;
+        border-color: #2B2B28;
+        text-align: center;
+        }
+
+        tr:last-child {
+        border-width: 0px 0px;
+        }
+
+        th { background-color: #2B2B28;
+        color: #ffffff;
+        text-align: center;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class = "shadow">
+    {% block content %}
+
+    {% endblock content %}
+    </div>
+</div>
+
+</body>
+</html>

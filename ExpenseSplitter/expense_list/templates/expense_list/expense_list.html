@@ -1,15 +1,38 @@
-<h1>Expense list</h1>
+{% extends 'expense_list/main.html' %}
+
+{% block content %}
+
+<div class = "header-bar">
+    <div class = "menu">
+        <h1>Hi {{request.user|title}}!</h1>
+        <h3><a href = "{% url 'expensecreate' %}">Add expense</a> //
+            <a href>Split expenses</a><h3>
+    </div>
+</div>
+
+<h1 class = "header">Expenses list <i class="fa-solid fa-sack-dollar"></i></h1>
+
 
 <table>
     <tr>
-        <th>Item</th>
+        <th>Expense</th>
+        <th>Amount</th>
+        <th>Buyer</th>
+        <th></th>
+
     </tr>
     {% for expense in expenses %}
     <tr>
         <td>{{expense.title}}</td>
+        <td>{{expense.amount}}</td>
+        <td>{{expense.user.username}}</td>
+        <td><a href = "{% url 'expensedetail' expense.id %}">Details</a>
+        <br><a href = "{% url 'expenseupdate' expense.id %}">Update</a>
+        <br><a href = "{% url 'expensedelete' expense.id %}">Delete</a></td>
     </tr>
     {% empty %}
         <h3>No items here!</h3>
     {% endfor %}
 </table>
 
+{% endblock content %}
