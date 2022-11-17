@@ -3,14 +3,20 @@
 {% block content %}
 
 <div class = "header-bar">
-    <div class = "menu">
         <h1>Hi {{request.user|title}}!</h1>
-        <h3><a href = "{% url 'expensecreate' %}">Add expense</a> //
-            <a href>Split expenses</a><h3>
+    <div class = "menu">
+        <h3><a href = "{% url 'expensecreate' %}"><i class="fa-solid fa-circle-chevron-right"></i> Add expense</a></h3>
+        <h3><a href = "{% url 'expensesummary' %}"><i class="fa-solid fa-circle-chevron-right"></i> Generate summary</a></h3>
     </div>
+    {% if request.user.is_authenticated %}
+    <a href = "{% url 'logout' %}">Logout</a>
+    {% else %}
+    <a href = "{% url 'login' %}">Login</a>
+    {% endif %}
 </div>
 
 <h1 class = "header">Expenses list <i class="fa-solid fa-sack-dollar"></i></h1>
+
 
 
 <table>

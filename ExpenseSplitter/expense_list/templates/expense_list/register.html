@@ -1,0 +1,14 @@
+<title>Register</title>
+{% extends 'expense_list/main.html' %}
+{% block content %}
+
+<h1>Register here</h1>
+<form method="POST">
+    {%csrf_token%}
+    {{form.as_p}}
+    <input type = "submit" value = "Register">
+</form>
+
+<p>Already have an account?<a href="{% url 'login' %}">Login</a></p>
+
+{% endblock content %}

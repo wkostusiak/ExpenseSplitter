@@ -1,0 +1,23 @@
+{% extends 'expense_list/main.html' %}
+
+{% block content %}
+
+<h2>Summary</h2>
+
+{{total_list}}
+<table>
+    <tr>
+
+    {% for element in results %}
+    <td>{{ element }}</td>
+        {% endfor %}
+    </tr>
+    <tr>
+    {% for total in totals %}
+    <td>{{ total|floatformat:2 }}</td>
+        {% endfor %}
+    </tr>
+</table>
+
+{% endblock content %}
+
