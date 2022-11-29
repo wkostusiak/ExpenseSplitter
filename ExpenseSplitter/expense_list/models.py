@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
 from django.db.models import Sum
 
 
@@ -15,7 +16,7 @@ class Expense(models.Model):
     title = models.CharField(max_length=200, null= False, blank=False, default='title')
     amount = models.DecimalField(max_digits=8, decimal_places=2)
     description = models.TextField(null=False, blank=True, default='text')
-    date = models.DateTimeField(null=True, blank=True)
+    date = models.DateTimeField(default=timezone.now)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     def __str__(self):

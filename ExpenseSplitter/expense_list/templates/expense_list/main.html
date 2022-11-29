@@ -9,7 +9,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
 <script src="https://kit.fontawesome.com/4ec61a45c2.js" crossorigin="anonymous"></script>
+
 
     <style>
         body{
@@ -20,10 +22,11 @@
 
         .container{
         width:100%;
-        max-width: 540px;
+        max-width: 800px;
         margin: auto;
         background-color: #F7F5F2;
         border-radius: 15px;
+
         }
 
         .shadow{
@@ -84,11 +87,51 @@
         border-width: 0px 0px;
         }
 
-        th { background-color: #2B2B28;
+        th {
+        background-color: #2B2B28;
         color: #ffffff;
         text-align: center;
         }
 
+        li:before {
+         font-family: 'FontAwesome';
+         content: '\f0a9';
+
+        }
+
+        li{
+        list-style-type: none;
+        }
+
+        .summary-header {
+         text-align: center
+        }
+
+
+        .summary-wrapper {
+        padding: 10px;
+        }
+
+        .splitted-box {
+         background-color: #FEB45A;
+         vertical-align: middle;
+         text-align: center;
+         margin-right: 10 px;
+         margin-left: 10px;
+         margin-top: 10px;
+         margin-bottom: 10px;
+         width: 25%;
+         width: 100px;
+         height: 100px;
+         padding: 20px 20px;
+         display:inline-block;
+        }
+
+        .splitted-wrapper {
+        display: flex;
+        margin: auto;
+        justify-content: center;
+        }
 
 
 

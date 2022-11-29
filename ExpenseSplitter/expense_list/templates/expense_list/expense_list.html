@@ -1,12 +1,36 @@
 {% extends 'expense_list/main.html' %}
-
 {% block content %}
 
 <div class = "header-bar">
         <h1>Hi {{request.user|title}}!</h1>
     <div class = "menu">
         <h3><a href = "{% url 'expensecreate' %}"><i class="fa-solid fa-circle-chevron-right"></i> Add expense</a></h3>
-        <h3><a href = "{% url 'expensesummary' %}"><i class="fa-solid fa-circle-chevron-right"></i> Generate summary</a></h3>
+        <h3><i class="fa-solid fa-circle-chevron-right"></i> Generate summary</a></h3>
+
+        <form action="{% url 'expensesummary' %}">
+          <select name="q">
+            <option disabled selected>Select month</option>
+            <option value=1>January</option>
+            <option value=2>February</option>
+             <option value=3>March</option>
+            <option value=4>April</option>
+            <option value=5>May</option>
+            <option value=6>June</option>
+             <option value=7>July</option>
+            <option value=8>August</option>
+             <option value=9>September</option>
+            <option value=10>October</option>
+             <option value=11>November</option>
+            <option value=12>December</option>
+
+          </select>
+
+                    <div>
+                        <button type="submit">Generate</button>
+                    </div>
+
+      </form>
+
     </div>
     {% if request.user.is_authenticated %}
     <a href = "{% url 'logout' %}">Logout</a>
@@ -17,7 +41,12 @@
 
 <h1 class = "header">Expenses list <i class="fa-solid fa-sack-dollar"></i></h1>
 
-
+<div>
+    <form method="GET">
+        {{ExpenseFilter.form}}
+        <button type="submit">Search</button>
+    </form>
+</div>
 
 <table>
     <tr>

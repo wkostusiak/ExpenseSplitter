@@ -2,9 +2,10 @@
 
 {% block content %}
 
-<h2>Summary</h2>
+<div class="summary-wrapper">
+<h2 class = "summary-header">Total spendings</h2>
+</div>
 
-{{total_list}}
 <table>
     <tr>
 
@@ -18,6 +19,15 @@
         {% endfor %}
     </tr>
 </table>
+
+<h2 class ="summary-header">Summary <i class="fa-solid fa-comments-dollar"></i></h2>
+
+<div class = "splitted-wrapper">
+    {% for element in splitted %}
+    <div class = "splitted-box">{{ element }}</div>
+    {% endfor %}
+</div>
+
 
 {% endblock content %}
 
