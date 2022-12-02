@@ -44,10 +44,16 @@ class ExpenseList(LoginRequiredMixin, ListView):
     model = Expense
     context_object_name = 'expenses'
 
-    def get_queryset(self):
-        qs = self.model.objects.all()
-        product_filtered_list = ExpenseFilter(self.request.GET, queryset=qs)
-        return product_filtered_list.qs
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(**kwargs)
+        expenses = Expense.objects.all()
+        expense_filter = ExpenseFilter(expenses)
+        myFilter = ExpenseFilter(self.request.GET, queryset = expenses)
+        expenses = myFilter.qs
+        context = {'myFilter': ExpenseFilter(), 'expenses':expenses}
+        return context
+
 
 class ExpenseDetail(LoginRequiredMixin, DetailView):
     model = Expense

@@ -2,6 +2,9 @@ from django.urls import path
 from . import views
 from .views import ExpenseList, ExpenseDetail, ExpenseCreate, ExpenseUpdate, ExpenseDelete, ExpenseLogin, RegisterPage
 from django.contrib.auth.views import LogoutView
+from django.conf import settings
+
+
 
 urlpatterns = [
     path('', ExpenseList.as_view(), name='expenselist'),
@@ -15,3 +18,5 @@ urlpatterns = [
     path('expense-summary/', views.totalsummary, name='expensesummary'),
 
 ]
+
+

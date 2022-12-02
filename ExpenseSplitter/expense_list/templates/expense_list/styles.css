@@ -1,0 +1,254 @@
+        body{
+        background-color: #DFDFDE;
+        font-family: 'Pontano Sans', sans-serif;
+        min-height: 100%;
+
+        }
+
+        .container{
+
+        border-radius: 15px;
+
+        }
+
+        .shadow{
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        border-radius: 15px;
+        }
+
+        .header{
+        font-family: 'Shrikhand';
+        text-align: center
+        }
+
+        a {
+        color: #4b5156;
+        text-decoration: none;
+        }
+
+        .menu {
+        text-align: left;
+        }
+
+        .menu a:hover{
+        text-decoration: underline;
+        }
+
+        .header-bar{
+        display: flex;
+
+        padding-top: 10px;
+        margin-bottom: 0px;
+
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        }
+
+        .background{
+        background-image: url(../background.jpg) !important;
+        max-height: 100%;
+        max-width: 100%;
+
+        }
+
+        table {
+        border-collapse: collapse;
+        border-spacing: 50px 0;
+        position: relative;
+        height:100%;
+        width:100%;
+
+        }
+
+        td {
+        padding: 20px 20px;
+        }
+
+        tr {
+        padding: 20px 20px;
+        border: solid;
+        border-width: 1px 0;
+        border-color: #2B2B28;
+        text-align: center;
+        }
+
+        tr:last-child {
+        border-width: 0px 0px;
+        }
+
+        th {
+        background-color: #2B2B28;
+        color: #ffffff;
+        text-align: center;
+        }
+
+        li:before {
+         font-family: 'FontAwesome';
+         content: '\f0a9';
+
+        }
+
+        li{
+        list-style-type: none;
+        }
+
+        .pig-animated {
+        display: fluid;
+        position: inherited;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        padding-bottom: 0px;
+        }
+
+        .top-left{
+        position: absolute;
+        }
+
+
+
+        .summary-header {
+         text-align: center
+        }
+
+
+        .summary-wrapper {
+        padding: 10px;
+        }
+
+        .splitted-box {
+         background-color: #FEB45A;
+         vertical-align: middle;
+         text-align: center;
+         margin-right: 10 px;
+         margin-left: 10px;
+         margin-top: 10px;
+         margin-bottom: 10px;
+         width: 25%;
+         width: 100px;
+         height: 100px;
+         padding: 20px 20px;
+         display:inline-block;
+        }
+
+        .splitted-wrapper {
+        display: flex;
+        margin: auto;
+        justify-content: center;
+        }
+
+        .filterform {
+        padding: 20px;
+        padding-left: 50px;
+        }
+
+
+        .regular-btn{
+  padding: 15px 40px;
+  background: #000;
+  border:0;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: helvetica;
+  font-size: 12px;
+  letter-spacing: 3px;
+  position: relative;
+  transition:         all .4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  cursor: pointer;
+  display: block;
+  margin-top: 20px;
+}
+
+
+        .submit-btn{
+  padding: 15px 40px;
+  background: #000;
+  border:0;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: helvetica;
+  font-size: 12px;
+  letter-spacing: 3px;
+  position: relative;
+  transition:         all .4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  cursor: pointer;
+  display: block;
+  margin-top: 20px;
+}
+
+.submit-btn::after,
+.submit-btn::before{
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0px;
+  transform: translateY(-50%);
+    opacity: 0;
+  transition:         all .4s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.submit-btn::after{
+    width: 30px;
+    height: 1px;
+    background: white;
+    transform: translateX(-3px);
+    margin-top: 0px;
+}
+
+.submit-btn::before{
+    content: "";
+    transform: rotate(-135deg) translateX(50%);
+    width: 11px;
+    height: 11px;
+    background: transparent;
+    border-left: 1px solid white;
+    border-bottom: 1px solid white;
+  margin-top: -1px;
+}
+
+
+.submit-btn:hover{
+  padding: 15px 60px 15px 20px;
+}
+
+.submit-btn:hover::after,
+.submit-btn:hover::before{
+  opacity: 1;
+  right: 15px;
+
+}
+
+
+/*Styling Selectbox*/
+
+.dropdown option {
+  padding: 15px 40px;
+  background: #000;
+  border:0;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: helvetica;
+  font-size: 12px;
+  letter-spacing: 3px;
+  position: relative;
+  transition:         all .4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  cursor: pointer;
+  display: block;
+  margin-top: 20px;
+}
+
+.dropdown-title{
+  padding: 15px 40px;
+  background: #000;
+  border:0;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: helvetica;
+  font-size: 12px;
+  letter-spacing: 3px;
+  position: relative;
+  transition:         all .4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  cursor: pointer;
+  display: block;
+  margin-top: 20px;
+}
+
