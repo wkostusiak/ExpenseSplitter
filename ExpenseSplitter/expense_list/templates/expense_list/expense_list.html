@@ -1,112 +1,103 @@
 {% extends 'expense_list/main.html' %}
 {% block content %}
-{% load static %}
 
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<!-- navbar -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand">Hi {{request.user|title}}!</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="#">Home</a>
-        <a class="nav-link" href="#">Features</a>
-        <a class="nav-link" href="#">Pricing</a>
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-      </div>
+    <div class="collapse navbar-collapse" id="navbarNav">
+
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'expensecreate' %}">Add expense</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ms-auto">
+        {% if request.user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link active" href = "{% url 'logout' %}">Logout</a>
+        </li>
+          {% else %}
+        <li class="nav-item">
+          <a class="nav-link active" href = "{% url 'login' %}">Login</a>
+        </li>
+        {% endif %}
+      </ul>
+
     </div>
   </div>
 </nav>
 
 
-<!-- header -->
+<div class="container-fluid padding">
+    <div class="row">
+        <div class="col-md-6 col-12-xsmall list">
 
-<div class="container-fluid background">
-<div class="row">
-<div class = "container col-12 col-12-xsmal header-bar">
-    <div class = "container-fluid col-6 col-12-xsmal pig-animated">
-        <h1 class="top-left">Hi {{request.user|title}}!</h1>
+            <!-- generate expense -->
 
-    </div>
-
-    <div class = "row">
-        <div class="container-fluid col-6 col-12-xsmal">
-            <h3><a href = "{% url 'expensecreate' %}"><i class="fa-solid fa-circle-chevron-right"></i> Add expense</a></h3>
-            <h3><i class="fa-solid fa-circle-chevron-right"></i> Generate summary</a></h3>
-        </div>
-       <div class="container-fluid col-6 col-12-xsmal menu">
-            {% if request.user.is_authenticated %}
-            <a href = "{% url 'logout' %}">Logout</a>
-            {% else %}
-            <a href = "{% url 'login' %}">Login</a>
-            {% endif %}
-        </div>
-
-        <!-- generate summary form -->
-
-
-        <form action="{% url 'expensesummary' %}">
-        <div class="dropdown">
-          <select name="q">
-            <div class="dropdown-title">
-            <option disabled selected>Select month</option>
+            <h1>Split bills for shared group expenses here!</h1>
+            <form action="{% url 'expensesummary' %}">
+            <div class="dropdown">
+                <select name="q">
+                <div class="dropdown-title"><option disabled selected>Select month</option></div>
+                <option value=1>January</option>
+                <option value=2>February</option>
+                <option value=3>March</option>
+                <option value=4>April</option>
+                <option value=5>May</option>
+                <option value=6>June</option>
+                <option value=7>July</option>
+                <option value=8>August</option>
+                <option value=9>September</option>
+                <option value=10>October</option>
+                <option value=11>November</option>
+                <option value=12>December</option>
+                </select>
             </div>
-            <option value=1>January</option>
-            <option value=2>February</option>
-            <option value=3>March</option>
-            <option value=4>April</option>
-            <option value=5>May</option>
-            <option value=6>June</option>
-            <option value=7>July</option>
-            <option value=8>August</option>
-            <option value=9>September</option>
-            <option value=10>October</option>
-            <option value=11>November</option>
-            <option value=12>December</option>
-          </select>
-          </div>
-            <div>
-                <button class = "submit-btn" type="submit">Generate</button>
+                <div>
+                  <button class = "submit-btn" type="submit">Generate</button>
+                </div>
+            </form>
+
+            <!-- search -->
+
+            <div class="filterform">
+                 <form class="form-inline" method="GET">
+                {{ myFilter.form.as_p }}
+                <button class="regular-btn" type="submit">Search</button>
+                </form>
             </div>
-        </form>
-    </div>
-</div>
-</div>
-</div>
-<!-- list of expenses -->
 
-<div class="row">
-    <div class="col-5 col-12-xsmall filterform">
-        <form class="form-inline" method="GET">
-        {{ myFilter.form.as_p }}
-        <button class="regular-btn" type="submit">Search</button>
-        </form>
-    </div>
+        </div>
 
-    <div class="col-7 col-12-xsmall">
-    <table>
-        <tr>
+        <div class="col-md-6 col-12-xsmall list">
+            <table>
+            <tr>
             <th>Expense</th>
             <th>Amount</th>
             <th>Buyer</th>
             <th></th>
-
-        </tr>
-        {% for expense in expenses %}
-        <tr>
-            <td>{{expense.title}}</td>
-            <td>{{expense.amount}}</td>
-            <td>{{expense.user.username}}</td>
-            <td><a href = "{% url 'expensedetail' expense.id %}">Details</a>
-            <br><a href = "{% url 'expenseupdate' expense.id %}">Update</a>
-            <br><a href = "{% url 'expensedelete' expense.id %}">Delete</a></td>
-        </tr>
-        {% empty %}
-            <h3>No items here!</h3>
-        {% endfor %}
-    </table>
+            </tr>
+            {% for expense in expenses %}
+            <tr>
+                <td>{{expense.title}}</td>
+                <td>{{expense.amount}}</td>
+                <td>{{expense.user.username}}</td>
+                <td><a href = "{% url 'expensedetail' expense.id %}">Details</a>
+                <br><a href = "{% url 'expenseupdate' expense.id %}">Update</a>
+                <br><a href = "{% url 'expensedelete' expense.id %}">Delete</a></td>
+            </tr>
+            {% empty %}
+            <td><h3>No items here!</h3></td>
+            </table>
+            {% endfor %}
+        </div>
     </div>
 </div>
 

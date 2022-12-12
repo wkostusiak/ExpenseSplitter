@@ -11,6 +11,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from .filters import ExpenseFilter
+from .forms import CreateUserForm
 
 
 
@@ -26,7 +27,7 @@ class ExpenseLogin (LoginView):
 
 class RegisterPage(FormView):
     template_name = 'expense_list/register.html'
-    form_class = UserCreationForm
+    form_class = CreateUserForm
     success_url = reverse_lazy('expenselist')
 
     def form_valid(self, form):

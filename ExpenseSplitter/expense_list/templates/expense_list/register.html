@@ -1,14 +1,71 @@
-<title>Register</title>
 {% extends 'expense_list/main.html' %}
 {% block content %}
 
-<h1>Register here</h1>
-<form method="POST">
-    {%csrf_token%}
-    {{form.as_p}}
-    <input type = "submit" value = "Register">
-</form>
+<title>Register</title>
 
-<p>Already have an account?<a href="{% url 'login' %}">Login</a></p>
+<div class="container-fluid d-flex justify-content-center">
+<div class="card text-dark bg-light mb-3 custom">
+  <div class="card-header"><h3 class="register">Register here:</h3></div>
+  <div class="card-body">
+        <form method="POST">
+            {%csrf_token%}
+            <h5 class="card-title">username:</h5>
+            <div class="d-flex flex-row align-items-center mb-4">
+                <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                <div class="form-outline flex-fill mb-0">
+                    {{form.username}}
+                </div>
+            </div>
+
+            <h5 class="card-title">email:</h5>
+            <div class="d-flex flex-row align-items-center mb-4">
+                <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                <div class="form-outline flex-fill mb-0">
+                    {{form.email}}
+                </div>
+            </div>
+
+            <h5 class="card-title">password:</h5>
+            <div class="d-flex flex-row align-items-center mb-4">
+                <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                <div class="form-outline flex-fill mb-0">
+                {{form.password1}}
+                </div>
+            </div>
+
+            <h5 class="card-title">confirm:</h5>
+            <div class="d-flex flex-row align-items-center mb-4">
+                <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                <div class="form-outline flex-fill mb-0">
+                {{form.password2}}
+                </div>
+            </div>
+
+            <div class="btn-center">
+                <button type = "submit">Register</button>
+            </div>
+        </form>
+
+    <div class="padding-small">
+        <p>Already have an account? </p><h3> <a href="{% url 'login' %}">Login</a></h3>
+    </div>
+
+  </div>
+</div>
+</div>
 
 {% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

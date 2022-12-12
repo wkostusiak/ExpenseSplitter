@@ -1,6 +1,9 @@
 import django_filters
-from .models import Expense
-from django_filters import DateFilter, CharFilter
+from .models import Expense, Category
+from django_filters import DateFilter, CharFilter, ModelChoiceFilter
+from django.db import models
+from django.contrib.auth.models import User
+
 
 class ExpenseFilter(django_filters.FilterSet):
     start_date = DateFilter(field_name="date", lookup_expr="gte", initial="dd/mm/yyyy")
@@ -9,4 +12,4 @@ class ExpenseFilter(django_filters.FilterSet):
 
     class Meta:
         model = Expense
-        fields = ['user', 'category', 'title']
+        fields = []

@@ -1,13 +1,25 @@
 {% extends 'expense_list/main.html' %}
 {% block content %}
 
-<h1>Login</h1>
-<form method="POST">
-    {%csrf_token%}
-    {{form.as_p}}
-    <input type = "submit" value = "Login">
-</form>
+<title>Login</title>
 
-<p>Don't have an account?<a href="{% url 'register' %}">Register</a></p>
+<div class="container-fluid d-flex justify-content-center">
+    <div class="row">
+    <div class="col-12-xsmall padding-center">
+        <h2>Login</h2>
+        <form method="POST">
+            {%csrf_token%}
+            {{form.as_p}}
+            <input type = "submit" value = "Login">
+        </form>
+
+        <div class="padding">
+            <p>Don't have an account? <a href="{% url 'register' %}">Register</a></p>
+        </div>
+    </div>
+    </div>
+</div>
 
 {% endblock content %}
+
+

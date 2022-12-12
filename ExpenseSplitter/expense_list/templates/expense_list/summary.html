@@ -1,33 +1,82 @@
 {% extends 'expense_list/main.html' %}
-
 {% block content %}
 
-<div class="summary-wrapper">
-<h2 class = "summary-header">Total spendings</h2>
+
+<!-- navbar -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand">Hi {{request.user|title}}!</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'expenselist' %}">Main page</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'expensecreate' %}">Add expense</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ms-auto">
+        {% if request.user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link active" href = "{% url 'logout' %}">Logout</a>
+        </li>
+          {% else %}
+        <li class="nav-item">
+          <a class="nav-link active" href = "{% url 'login' %}">Login</a>
+        </li>
+        {% endif %}
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<!-- total spendings view -->
+
+<div class="container-fluid padding">
+    <div class="row">
+        <div class="col-md-6 col-12-xsmall">
+            <div>
+                <h2 class="summary-header">Total spendings</h2>
+            </div>
+
+            <div>
+                <table>
+                <tr>
+                {% for element in results %}
+                <td>{{ element }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                {% for total in totals %}
+                <td>{{ total|floatformat:2 }}</td>
+                    {% endfor %}
+                </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-12-xsmall">
+            <div>
+                <h2 class ="summary-header">Summary <i class="fa-solid fa-comments-dollar"></i></h2>
+            </div>
+
+            {% for element in splitted %}
+            <div class = "col-md-12 col-12-xsmall btn-center">
+                <h4>{{ element }}</h4>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
 </div>
-
-<table>
-    <tr>
-
-    {% for element in results %}
-    <td>{{ element }}</td>
-        {% endfor %}
-    </tr>
-    <tr>
-    {% for total in totals %}
-    <td>{{ total|floatformat:2 }}</td>
-        {% endfor %}
-    </tr>
-</table>
-
-<h2 class ="summary-header">Summary <i class="fa-solid fa-comments-dollar"></i></h2>
-
-<div class = "splitted-wrapper">
-    {% for element in splitted %}
-    <div class = "splitted-box">{{ element }}</div>
-    {% endfor %}
-</div>
-
 
 {% endblock content %}
 

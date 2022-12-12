@@ -1,3 +1,59 @@
- <title>Detail</title>
+{% extends 'expense_list/main.html' %}
+{% block content %}
 
-<h1>Expense: {{expense}}</h1>
+<title>Detail</title>
+
+<!-- navbar -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand">Hi {{request.user|title}}!</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'expenselist' %}">Main page</a>
+        </li>
+                <li class="nav-item">
+          <a class="nav-link active" href="{% url 'expensecreate' %}">Add expense</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ms-auto">
+        {% if request.user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link active" href = "{% url 'logout' %}">Logout</a>
+        </li>
+          {% else %}
+        <li class="nav-item">
+          <a class="nav-link active" href = "{% url 'login' %}">Login</a>
+        </li>
+        {% endif %}
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class="container-fluid d-flex justify-content-center">
+    <div class="row">
+    <div class="col-12-xsmall add-expense">
+
+    <h2>Expense details:</h2>
+
+    <h3>user: {{expense.user}}</h3>
+    <h3>title: {{expense.title}}</h3>
+    <h3>amount: {{expense.amount}}</h3>
+    <h3>date: {{expense.date}}</h3>
+    <h3>category:{{expense.category}}</h3>
+    <h3>note: {{expense.description}}</h3>
+
+    </div>
+    </div>
+</div>
+
+{% endblock content %}
