@@ -7,6 +7,22 @@
 <div class="card text-dark bg-light mb-3 custom">
   <div class="card-header"><h3 class="register">Register here:</h3></div>
   <div class="card-body">
+
+        {% if form.errors %}
+            {% for field in form %}
+                {% for error in field.errors %}
+                    <div class="alert alert-danger">
+                        <strong>{{ error|escape }}</strong>
+                    </div>
+                {% endfor %}
+            {% endfor %}
+            {% for error in form.non_field_errors %}
+                <div class="alert alert-danger">
+                    <strong>{{ error|escape }}</strong>
+                </div>
+            {% endfor %}
+        {% endif %}
+
         <form method="POST">
             {%csrf_token%}
             <h5 class="card-title">username:</h5>
