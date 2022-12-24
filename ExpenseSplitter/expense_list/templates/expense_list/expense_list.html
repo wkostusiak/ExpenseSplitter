@@ -44,8 +44,8 @@
             <h1>Split bills for shared group expenses here!</h1>
             <form action="{% url 'expensesummary' %}">
             <div class="dropdown">
-                <select name="q">
-                <div class="dropdown-title"><option disabled selected>Select month</option></div>
+                <select name="q" required>
+                <div class="dropdown-title"><option hidden value="">Select month</option></div>
                 <option value=1>January</option>
                 <option value=2>February</option>
                 <option value=3>March</option>
