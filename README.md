@@ -1,3 +1,4 @@
+![](https://github.com/wkostusiak/ExpenseSplitter/blob/master/banner.png)
 
 <h2 align="center">Expense Splitter</h2>
 
