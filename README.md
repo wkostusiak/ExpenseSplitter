@@ -42,14 +42,14 @@ The app allows you to manage spendings and easily split them between your family
 It tells you what amount of money each user owes the others, assuming equal contribution (eg. for three users expenses are shared between these three people)
 The idea behind it is to make managing household budget easier.
 
-[![main screenshot][main-screenshot]]
+![main page](https://github.com/wkostusiak/ExpenseSplitter/blob/master/ExpenseSplitter/images/main.png)
 
 ### Built With
 
 * Python 3.10 
 * Django 4.10
 * HTML5
-* CSS
+* CSS3
 * Bootstrap 5.2.3
 
 
@@ -57,22 +57,14 @@ The idea behind it is to make managing household budget easier.
 ### Features
 
 * adding expenses with short description, date, category and amount spent
-* updating and deleting expenses
-<br>
-[![adding expenses screenshot][add-screenshot]]
-<br>
-* search feature which allows to choose date range, category and title for displayed expenses
-<br>
-[![search screenshot][search-screenshot]]
-<br>
-* drop-down menu allowing to choose a month to be splitted
-<br>
-[![generate screenshot][generate-screenshot]]
-<br>
-* immediate generation of your monthly summary
-<br>
-[![summary screenshot][summary-screenshot]]
-<br>
+* updating and deleting expenses <br><br>
+![adding expenses screenshot](https://github.com/wkostusiak/ExpenseSplitter/blob/master/ExpenseSplitter/images/add.png)
+* search feature which allows to choose date range, category and title for displayed expenses <br><br>
+![search screenshot](https://github.com/wkostusiak/ExpenseSplitter/blob/master/ExpenseSplitter/images/search.png)
+* drop-down menu allowing to choose a month to be splitted <br><br>
+![generate screenshot](https://github.com/wkostusiak/ExpenseSplitter/blob/master/ExpenseSplitter/images/generate.png)
+* immediate generation of your monthly summary <br><br>
+![summary screenshot](https://github.com/wkostusiak/ExpenseSplitter/blob/master/ExpenseSplitter/images/summary.png)
 * registration (unique email) and login page 
 
 
@@ -83,13 +75,4 @@ The idea behind it is to make managing household budget easier.
 If you have a suggestion that would make this better, please let me know 😄
 
 
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-
-[add-screenshot]: images/add.png
-[main-screenshot]: images/main.png
-[search-screenshot]: images/search.png
-[generate-screenshot]: images/generate.png
-[summary-screenshot]: images/summary.png
 
